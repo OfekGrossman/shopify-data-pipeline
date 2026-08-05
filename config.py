@@ -1,6 +1,4 @@
-"""
-Configuration file for the data pipeline.
-"""
+"""Configuration file for the data pipeline."""
 from pathlib import Path
 
 # The configuration file contains sensitive information (API keys, tokens, etc.) and is gitignored. The fallback in the repository is credentials_example.py
