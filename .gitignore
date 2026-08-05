@@ -1,10 +1,14 @@
+# credentials
+credentials.py
+
+#logs
+logs/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
 *$py.class
 
-#logs
-logs/
 
 # C extensions
 *.so
