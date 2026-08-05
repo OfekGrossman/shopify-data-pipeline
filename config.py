@@ -10,8 +10,8 @@ except ImportError:
     from credentials_example import SHOPIFY_ACCESS_TOKEN
 
 # ========== SHOPIFY (sales data) ===========
-SHOPIFY_SHOP_URL = "your-store.myshopify.com"
 SHOPIFY_ACCESS_TOKEN = SHOPIFY_ACCESS_TOKEN
+SHOPIFY_SHOP_URL = "ofek-dev-store.myshopify.com"
 SHOPIFY_API_VERSION = "2026-07"
 
 # ========== LOCAL PATHS (bronze files + SQLite warehouse + logs) ==========
