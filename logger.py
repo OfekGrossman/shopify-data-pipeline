@@ -4,8 +4,6 @@ from config import LOG_DIR
 import inspect
 from pathlib import Path
 
-
-
 def log_message(message: str = None, level: str = "INFO", stage: str = None, **kwargs) -> None:
 
     """
