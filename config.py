@@ -2,10 +2,12 @@
 Configuration file for the data pipeline.
 """
 from pathlib import Path
-try:
+
+# The configuration file contains sensitive information (API keys, tokens, etc.) and is gitignored. The fallback in the repository is credentials_example.py
+try:    
     from credentials import SHOPIFY_ACCESS_TOKEN
-except ImportError as e:
-    SHOPIFY_ACCESS_TOKEN = None
+except ImportError:
+    from credentials_example import SHOPIFY_ACCESS_TOKEN
 
 # ========== SHOPIFY (sales data) ===========
 SHOPIFY_SHOP_URL = "your-store.myshopify.com"
