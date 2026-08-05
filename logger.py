@@ -19,7 +19,8 @@ def log_message(message: str = None, level: str = "INFO", stage: str = None, **k
     # Ensure the log directory exists
     LOG_DIR.mkdir(parents=True, exist_ok=True)
 
-    frame = inspect.currentframe().f_back   # the frame that CALLED this function
+    # the frame that CALLED this function
+    frame = inspect.currentframe().f_back   
     caller_file = Path(frame.f_code.co_filename).name   # just the filename, no path
     caller_line = frame.f_lineno   # the line number in the caller's file
 
