@@ -3,9 +3,9 @@ from pathlib import Path
 
 # The configuration file contains sensitive information (API keys, tokens, etc.) and is gitignored. The fallback in the repository is credentials_example.py
 try:    
-    from credentials import SHOPIFY_ACCESS_TOKEN
+    from pipeline.credentials import SHOPIFY_ACCESS_TOKEN
 except ImportError:
-    from credentials_example import SHOPIFY_ACCESS_TOKEN
+    from pipeline.credentials_example import SHOPIFY_ACCESS_TOKEN
 
 # ========== SHOPIFY (sales data) ===========
 SHOPIFY_ACCESS_TOKEN = SHOPIFY_ACCESS_TOKEN

@@ -1,6 +1,6 @@
 from datetime import datetime, timezone, date
 import json
-from config import LOG_DIR
+from pipeline.config import LOG_DIR
 import inspect
 from pathlib import Path
 

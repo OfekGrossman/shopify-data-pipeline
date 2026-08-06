@@ -1,7 +1,7 @@
 """Shopify GraphQL extractor — pulls raw data into the bronze layer."""
 import requests
-from config import SHOPIFY_SHOP_URL, SHOPIFY_ACCESS_TOKEN, SHOPIFY_API_VERSION
-from logger import log_message
+from pipeline.config import SHOPIFY_SHOP_URL, SHOPIFY_ACCESS_TOKEN, SHOPIFY_API_VERSION
+from pipeline.logger import log_message
 
 ENDPOINT = f"https://{SHOPIFY_SHOP_URL}/admin/api/{SHOPIFY_API_VERSION}/graphql.json"
 
