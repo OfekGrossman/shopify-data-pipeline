@@ -11,15 +11,8 @@ repeat buyers) OR to a brand-new generated one. Newly created customers are
 appended to the in-memory pool, so the set of possible repeat buyers grows
 as the run goes on.
 
-Built to run unattended overnight: it backs off and waits out Shopify's
-order-creation throttle rather than giving up. Re-running ADDS more orders
-(no dedup), so if you wake up short of the target, just lower n and run again.
-
-NOTE ON SCOPES: creating new customers needs the `write_customers` scope,
-and fetching the customer pool needs `read_customers` (plus possibly
-"Protected customer data" access enabled on the app).
-
-Launch from the project root:  python generate_orders.py
+it backs off and waits out Shopify's order-creation throttle rather than giving up. Re-running ADDS more orders
+(no dedup).
 """
 from datetime import datetime, timedelta, timezone
 import random
