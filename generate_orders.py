@@ -21,7 +21,7 @@ import time
 from extract import extract_data
 from logger import log_message
 
-BASE_PACE = 5   # seconds between orders (steady pace so we don't keep re-tripping the limit)
+BASE_PACE = 11  # seconds between orders (steady pace so we don't keep re-tripping the limit)
 
 # Simple name pools for generating brand-new customers (no external dependency).
 FIRST_NAMES = ["Noa", "Ofek", "Maya", "Yossi", "Tamar", "Avi", "Dana", "Eitan", "Shira", "Amit", "Lior", "Roni"]
@@ -172,4 +172,4 @@ def generate_orders(n: int = 1000) -> None:
 
 if __name__ == "__main__":
     # Sanity-check with a small number first (change to 5), then run the full batch overnight.
-    generate_orders(n=2)
+    generate_orders(n=20)
