@@ -9,7 +9,15 @@ CUSTOMERS_QUERY = """
 query GetCustomers($cursor: String) {
   customers(first: 100, after: $cursor) {
     edges {
-      node { id displayName email createdAt numberOfOrders }
+      node {
+        id
+        createdAt
+        numberOfOrders
+        defaultAddress {
+          city
+          country
+        }
+      }
     }
     pageInfo { hasNextPage endCursor }
   }
