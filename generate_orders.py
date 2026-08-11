@@ -17,7 +17,6 @@ it backs off and waits out Shopify's order-creation throttle rather than giving 
 from datetime import datetime, timedelta, timezone
 import random
 import time
-
 from extract import extract_data
 from logger import log_message
 

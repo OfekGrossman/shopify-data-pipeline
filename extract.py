@@ -1,4 +1,4 @@
-"""Shopify GraphQL extractor — pulls raw data into the bronze layer."""
+"""Shopify GraphQL extractor."""
 import requests
 from config import SHOPIFY_SHOP_URL, SHOPIFY_ACCESS_TOKEN, SHOPIFY_API_VERSION, BRONZE_DIR
 from logger import log_message
