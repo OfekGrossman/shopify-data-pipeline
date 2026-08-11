@@ -6,8 +6,6 @@ __pycache__/
 *.py[codz]
 *$py.class
 
-# data
-data/
 
 # logs
 logs/
