@@ -1,19 +1,16 @@
 # credentials
 credentials.py
 
-# Guides
-guides/
-
-#logs
-logs/
-
-#data
-data/
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
 *$py.class
+
+# data
+data/
+
+# logs
+logs/
 
 
 # C extensions
