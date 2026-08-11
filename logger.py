@@ -1,3 +1,4 @@
+""" Logger for saving and printing logs for the data pipeline. """
 from datetime import datetime, timezone, date
 import json
 from config import LOG_DIR
