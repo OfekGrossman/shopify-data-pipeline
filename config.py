@@ -14,5 +14,5 @@ SHOPIFY_API_VERSION = "2026-07"
 
 # ========== LOCAL PATHS (bronze files + SQLite warehouse + logs) ==========
 BRONZE_DIR = Path("data/bronze")     # Raw JSON lands here
-DB_PATH = Path("data/warehouse.db")  # silver + gold tables live here
+DB_PATH = Path("data/warehouse.duckdb")  # silver + gold tables live here
 LOG_DIR = Path("logs")

@@ -1,43 +1,41 @@
 """
-SQLite warehouse engine. 
+DuckDB warehouse engine. 
 Contains load and read helpers for the silver + gold layers.
+Tables live in a schema.
 Allows to reuse one connection across many queries instead of reopening the file each call. 
 Use as a context manager in scripts,
 or keep an instance around and call .close() when done (e.g. in a notebook).
 """
 
-import sqlite3
+import duckdb
 import pandas as pd
 from config import DB_PATH
 from logger import log_message
-
 
 class Warehouse:
     def __init__(self, db_path=DB_PATH):
         self.db_path = db_path
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
-        self.conn = sqlite3.connect(self.db_path)   # the reusable connection
+        self.conn = duckdb.connect(str(self.db_path))   # embedded, no server
 
-    # alows `with Warehouse() as wh:` to auto-close the connection
-    def __enter__(self): 
+    def __enter__(self):
         return self
 
-    def __exit__(self, exc_type, exc, tb): 
+    def __exit__(self, *a):
         self.close()
 
-    # allows to call wh.close() when done (e.g. in a notebook)
     def close(self):
         self.conn.close()
 
-    # load a dataframe into the warehouse, replacing or appending to an existing table
-    def write_table(self, df: pd.DataFrame, name: str, if_exists: str = "replace") -> None:
-        df.to_sql(name, self.conn, if_exists=if_exists, index=False)
-        self.conn.commit()
-        log_message("Wrote table", stage="load", level="INFO", table=name, rows=len(df))
+    def write_table(self, df: pd.DataFrame, name: str, schema: str = "silver") -> None:
+        self.conn.execute(f"CREATE SCHEMA IF NOT EXISTS {schema}")
+        self.conn.register("_df_to_write", df)
+        self.conn.execute(f"CREATE OR REPLACE TABLE {schema}.{name} AS SELECT * FROM _df_to_write")
+        self.conn.unregister("_df_to_write")
+        log_message("Wrote table", stage="load", level="INFO", table=f"{schema}.{name}", rows=len(df))
 
-    # execute a SQL query and return the results as a dataframe
     def query(self, sql: str) -> pd.DataFrame:
-        return pd.read_sql_query(sql, self.conn)
+        return self.conn.execute(sql).df()
 
-
-    
+    def read_table(self, name: str, schema: str = "silver") -> pd.DataFrame:
+        return self.query(f"SELECT * FROM {schema}.{name}")
