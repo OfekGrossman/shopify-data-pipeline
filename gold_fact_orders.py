@@ -1,4 +1,4 @@
-"""Gold: order-grain fact — one row per order, with a new/returning customer flag."""
+"""Gold: order-grain fact. one row per order, with a new/returning customer flag."""
 
 from warehouse import Warehouse
 from logger import log_message

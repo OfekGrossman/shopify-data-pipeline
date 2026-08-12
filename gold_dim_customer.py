@@ -1,4 +1,4 @@
-"""Gold: customer dimension — one row per customer, cleaned for analysis."""
+"""Gold: customer dimension. one row per customer, cleaned for analysis."""
 
 from warehouse import Warehouse
 from logger import log_message
