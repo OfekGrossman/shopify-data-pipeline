@@ -33,6 +33,8 @@ query GetOrders($cursor: String) {
             node {
               title
               quantity
+              originalUnitPriceSet { shopMoney { amount currencyCode } }
+              discountedTotalSet   { shopMoney { amount currencyCode } }
               product { id title productType }
             }
           }
