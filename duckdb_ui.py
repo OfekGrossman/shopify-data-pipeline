@@ -1,4 +1,7 @@
-"""launch the DuckDB local web UI over the warehouse"""
+"""
+Launch the DuckDB local web UI over the warehouse.
+To close the UI, press Ctrl+C in this terminal window.
+"""
 import duckdb
 from config import DB_PATH
 
