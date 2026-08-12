@@ -1,0 +1,13 @@
+# Shopify extract (bronze)
+requests>=2.28
+
+# Warehouse engine + dataframes (silver + gold)
+duckdb>=1.2.1          # >=1.2.1 for the local UI extension + read_only connections
+pandas>=2.0
+
+# Dashboard
+streamlit>=1.30
+plotly>=5.0
+
+# Exploration notebooks (silver_exploration.ipynb / gold_exploration.ipynb)
+ipykernel>=6.29
