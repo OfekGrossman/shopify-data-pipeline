@@ -17,7 +17,7 @@ it backs off and waits out Shopify's order-creation throttle rather than giving 
 from datetime import datetime, timedelta, timezone
 import random
 import time
-from extract import extract_data
+from pipeline.extract import extract_data
 from logger import log_message
 
 BASE_PACE = 11  # seconds between orders (steady pace so we don't keep re-tripping the limit)

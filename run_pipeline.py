@@ -15,26 +15,26 @@ import time
 from logger import log_message
 
 # --- bronze (extract from Shopify) ---
-from extract import extract_to_bronze
-from extract_orders import ORDERS_QUERY
-from extract_products import PRODUCTS_QUERY
-from extract_customers import CUSTOMERS_QUERY
+from pipeline.extract import extract_to_bronze
+from pipeline.extract_orders import ORDERS_QUERY
+from pipeline.extract_products import PRODUCTS_QUERY
+from pipeline.extract_customers import CUSTOMERS_QUERY
 
 # --- silver ---
-from silver_orders import build_silver_orders
-from silver_order_items import build_silver_order_items
-from silver_products import build_silver_products
-from silver_customers import build_silver_customers
+from pipeline.silver_orders import build_silver_orders
+from pipeline.silver_order_items import build_silver_order_items
+from pipeline.silver_products import build_silver_products
+from pipeline.silver_customers import build_silver_customers
 
 # --- gold ---
-from gold_dim_product import build_dim_product
-from gold_dim_customer import build_dim_customer
-from gold_fact_orders import build_fact_orders
-from gold_fact_order_items import build_fact_order_items
-from gold_fact_product_pairs import build_fact_product_pairs
-from gold_fact_vendor_pairs import build_fact_vendor_pairs
-from gold_fact_product_groups import build_fact_product_groups
-from gold_fact_vendor_groups import build_fact_vendor_groups
+from pipeline.gold_dim_product import build_dim_product
+from pipeline.gold_dim_customer import build_dim_customer
+from pipeline.gold_fact_orders import build_fact_orders
+from pipeline.gold_fact_order_items import build_fact_order_items
+from pipeline.gold_fact_product_pairs import build_fact_product_pairs
+from pipeline.gold_fact_vendor_pairs import build_fact_vendor_pairs
+from pipeline.gold_fact_product_groups import build_fact_product_groups
+from pipeline.gold_fact_vendor_groups import build_fact_vendor_groups
 
 
 def step(label, fn):
